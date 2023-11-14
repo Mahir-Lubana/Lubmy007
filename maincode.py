@@ -14,7 +14,7 @@ class Alchemist:
         self.magic = magic 
         self.defense = defense
         self.ranged = ranged
-        self.laboratory = laboratory
+        self.laboratory = Laboratory()
         self.necromancy = necromancy
         self.recipes = {
             "Super Attack": ["Irit", "Eye of Newt"],
@@ -31,9 +31,11 @@ class Alchemist:
             "Extreme Necromancy":["Ground Miasama Rune", "Super Necromancy"] 
         }
 
-
-
-
+class Laboratory:
+    def __init__(self):
+        self.potions = []
+        self.herbs = []
+        self.catalysts = []
 
 
 
