@@ -22,8 +22,28 @@ class Laboratory:
         """Initalises the  Laboratory instance with empty lists for the potions, herbs and catalysts"""
         
         self.potions = []
-        self.herbs = []
-        self.catalysts = []
+        self.herbs = [
+            Herb(name="Arbuck", potency=2.6),
+            Herb(name="Avantoe", potency=3.0),
+            Herb(name="Cadantine", potency=1.5),
+            Herb(name="Dwarf Weed", potency=2.5),
+            Herb(name="Irit", potency=1.0),
+            Herb(name="Kwuarm", potency=1.2),
+            Herb(name="Lantadyme", potency=2.0),
+            Herb(name="Torstol", potency=4.5)
+        ]
+
+        self.catalysts = [
+            Catalyst(name="Eye of Newt", potency=4.3, quality=1.0),
+            Catalyst(name="Limpwurt Root", potency=3.6, quality=1.7),
+            Catalyst(name="White Berries", potency=1.2, quality=2.0),
+            Catalyst(name="Potato Cactus", potency=7.3, quality=0.1),
+            Catalyst(name="Wine of Zamorak", potency=1.7, quality=5.0),
+            Catalyst(name="Blood of Orcus", potency=4.5, quality=2.2),
+            Catalyst(name="Ground Mud Rune", potency=2.1, quality=6.7),
+            Catalyst(name="Grenwall Spike", potency=6.3, quality=4.9),
+            Catalyst(name="Ground Miasma Rune", potency=3.3, quality=5.2)
+        ]
 
     def addPotion(self, potion):
         """It Adds a potion to the laboratory's collection"""
