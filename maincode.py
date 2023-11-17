@@ -9,7 +9,6 @@ This is my own work as defined by the University's Academic Misconduct Policy.
 
 
 
-
 class Laboratory:
     """
     The Laboratory class is a facility for alchemist's potions crafting.

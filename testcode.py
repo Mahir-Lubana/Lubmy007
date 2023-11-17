@@ -57,4 +57,3 @@ def testing_refine_reagents(lab, herb, catalyst):
     assert not lab.herbs[0].isGrimy()
     assert lab.herbs[0].getPotency() == 5.0
     assert catalyst.getQuality() == 2.6
-    
