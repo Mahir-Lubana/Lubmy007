@@ -19,8 +19,7 @@ class Laboratory:
     """
 
     def __init__(self):
-        """Initalises the  Laboratory instance with empty lists for the potions, herbs and catalysts"""
-        
+
         self.potions = []
         self.herbs = [
             Herb(name="Arbuck", potency=2.6),
@@ -67,6 +66,7 @@ class Laboratory:
         secondary= next((catalyst for catalyst in self.catalysts if catalyst.getName()== secondaryIngredient), None)
 
         if primary and secondary:
+
             if type == "Super":
                 
                 boost = primary.getPotency() + (secondary.getPotency() * secondary.getQuality()) * 1.5
@@ -128,7 +128,6 @@ class Alchemist:
 
     def __init__(self, attack, strength, magic, defense, ranged, laboratory, necromancy):
 
-        """ Initalises the Alchemist instance."""
 
         self.attack = attack
         self.strength = strength
@@ -154,12 +153,10 @@ class Alchemist:
     
 
     def getLaboratory(self):
-        """ It will return the associated laboratory """
 
         return self.laboratory
     
     def getRecipes(self):
-        """ it will return the recipes of potions  """
 
         return self.recipes 
     
@@ -188,12 +185,18 @@ class Alchemist:
 
         self.laboratory.refineReagents()
 
+
+
 class Reagent:
+    """Reagent class is a basic ingredient with name and potency.
+     
+      it follows potency value of the reagent and name of reagent.
+      -potency(float)
+      -name(string)"""
 
 
 
     def __init__(self, potency, name):
-
 
         self.potency = potency
         self.name = name
@@ -206,6 +209,13 @@ class Reagent:
     
     
 class Herb(Reagent):
+    """Herb class is representing reagent which is used in potion making and is a sub-class of Reagent.
+
+      -grimy: is an attribute and it indicates that if the herb is in a grimy or refined state.
+      -potency: is an attribute and it for determining the effectiveness in potion making.   
+    
+    
+    """
 
 
 
@@ -217,16 +227,26 @@ class Herb(Reagent):
 
 
     def refine(self):
+        """refining the herb and multiplying its potency by value of 2.5"""
 
         self.grimy = False
         self.potency *= 2.5
         print(f"{self.name} has been refined. Potency is now {self.potency:.2f}.")
 
     def isGrimy(self):
+        """checks if the herb is grimy and if it is grimy then 
+        it will return true else false """
 
         return self.grimy
     
+    
 class Catalyst(Reagent):
+    """The Catalysts is part of reagent which is used in potion making and is a sub-class of Reagent.
+
+    -quality: is an attribute for catalysts and its effectiveness in potion making.
+    
+    """
+    
 
 
     def __init__(self, quality, *args, **kwargs):
@@ -237,6 +257,7 @@ class Catalyst(Reagent):
 
     
     def refine(self):
+        """Refining the catalyst, increasing its quality by 1.1 and up to a maximum 10"""
 
         if self.quality < 8.9:
             self.quality += 1.1
@@ -255,6 +276,15 @@ class Catalyst(Reagent):
 
 
 class Potion:
+    """The potion class is a generic potion in potion making
+    
+    stat: is an attribute and is affected by the (attack, defense and etc).
+    name: is an attribute for potion name 
+    boost: is an attribute and boost provided by the potion
+    
+    
+    
+    """
 
     def __init__(self, stat, name, boost):
 
@@ -264,6 +294,7 @@ class Potion:
         self.boost = boost
 
     def calculateBoost(self):
+        """calculating and then return the boost provided by potion"""
 
         return self.boost
     
@@ -286,6 +317,15 @@ class Potion:
 
 
 class SuperPotion(Potion):
+    """The Superpotion class is a sub-class of Potion  but has more enhanced properties.
+    
+    Attributes used:
+    -herb
+    -catalyst
+    -stat
+    -name
+    -boost
+    """
 
     def __init__(self, herb, catalyst, *args, **kwargs):
 
@@ -294,6 +334,8 @@ class SuperPotion(Potion):
         self.catalyst = catalyst
 
     def calculateBoost(self):
+        """it calculates and retun the boost prvoided to the super potion 
+        and it also Overrides the method in Potion in order to provide a boost calculation."""
 
         return self.herb.getPotency() + (self.catalyst.getPotency()* self.catalyst.getQuality()) * 1.5
     
@@ -307,6 +349,16 @@ class SuperPotion(Potion):
     
 
 class ExtremePotion(Potion):
+    """The class of ExtremePotion is a different type of potion with other properties
+    
+    Attributes:
+    -reagent:
+    -potion:
+    -stat
+    -name
+    -boost
+    
+    """
 
 
     def __init__(self, reagent, potion, *args, **kwargs):
