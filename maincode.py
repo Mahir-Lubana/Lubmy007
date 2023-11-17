@@ -77,8 +77,11 @@ class Laboratory:
 
             elif type == "Extreme":
                 
-                boost = (primary.getPotency() * secondary.getQuality()) * 3.0
+                boost = (primary.getPotency() * secondary.getBoost()) * 3.0
                 boost = round(boost, 2)
+            
+            else:
+                boost =1.0
 
             
             potion = Potion(name=name, stat=stat, boost=boost)
@@ -101,7 +104,7 @@ class Laboratory:
 
         
 
-    def refineReagent(self):
+    def refineReagents(self):
         """ refining the reagents in laboratory"""
 
         for herb in self.herbs:
