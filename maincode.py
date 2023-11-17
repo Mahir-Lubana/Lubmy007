@@ -1,11 +1,13 @@
-'''
+"""
 File: maincode.py
 Description: Main code file for assignment 2 
 Author: Mahir Lubana
 StudentID: 110408840
 EmailID: Lubmy007
 This is my own work as defined by the University's Academic Misconduct Policy.
-'''
+"""
+
+
 
 
 class Laboratory:
@@ -75,7 +77,7 @@ class Laboratory:
 
             elif type == "Extreme":
                 
-                boost = (primary.getPotency() * secondary.getBoost()) * 3.0
+                boost = (primary.getPotency() * secondary.getQuality()) * 3.0
                 boost = round(boost, 2)
 
             
